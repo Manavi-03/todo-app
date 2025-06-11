@@ -1,0 +1,468 @@
+/* === BASE STYLES === */
+body {
+  font-family: 'Times New Roman', Times, serif;
+  font-size: 16px;
+  letter-spacing: 0px;
+  margin: 0;
+  padding: 20px;
+  min-height: 100vh;
+  background: linear-gradient(-45deg,
+    #f8b195, #f67280, #c06c84, #6c5b7b,
+    #355c7d, #6c5b7b, #c06c84, #f8b195
+  );
+  background-size: 800% 800%;
+  animation: gradientBG 30s ease infinite;
+}
+
+@keyframes gradientBG {
+  0% { background-position: 0% 50%; }
+  25% { background-position: 50% 100%; }
+  50% { background-position: 100% 50%; }
+  75% { background-position: 50% 0%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* === CONTAINER === */
+.container {
+  max-width: 600px;
+  margin: auto;
+  background: rgba(255, 255, 255, 0.25);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  padding: 30px;
+  border-radius: 20px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+  text-align: center;
+}
+
+/* === HEADER === */
+h1 {
+  font-family: 'Times New Roman', Times, serif;
+  font-size: 32px;
+  color: var(--text);
+  transition: color 0.3s ease;
+}
+
+/* === INPUT SECTION === */
+.input-row {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+#task-input,
+#task-time {
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #bbb;
+  border-radius: 6px;
+}
+
+#task-input {
+  flex: 1 1 200px;
+  max-width: 300px;
+}
+
+#task-time {
+  max-width: 120px;
+  background-color: #fff;
+  color: #333;
+  outline: none;
+  appearance: none;
+  text-align: center;
+}
+
+/* === BUTTONS: Add & Clear === */
+#add-btn,
+#clear-btn {
+  padding: 10px 20px;
+  font-size: 16px;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+#add-btn {
+  background-color: #38a169;
+  color: white;
+}
+
+#add-btn:hover {
+  background-color: #2f855a;
+}
+
+#clear-btn {
+  background-color: #e53e3e;
+  color: white;
+}
+
+#clear-btn:hover {
+  background-color: #c53030;
+}
+
+/* === TASK LIST === */
+ul {
+  list-style-type: none;
+  padding: 0;
+  margin-top: 20px;
+}
+
+/* === TASK ITEM === */
+li {
+  padding: 10px 15px;
+  background: #f9fafb;
+  margin-bottom: 10px;
+  border-radius: 8px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: opacity 0.3s ease;
+  border: 2px solid transparent;
+}
+
+.task-item {
+  border: 2px solid transparent;
+}
+
+/* === TASK TEXT === */
+.task-text {
+  margin: 0 10px;
+  flex-grow: 1;
+  padding: 0 10px;
+}
+
+/* === COMPLETED TASK === */
+li.completed .main-text {
+  text-decoration: line-through;
+  opacity: 0.6;
+}
+
+li.completed {
+  opacity: 0.6;
+}
+
+/* === TASK ACTION BUTTONS === */
+li button.check-btn,
+li button.delete-btn {
+  width: 36px;
+  height: 36px;
+  border: none;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  padding: 8px 14px;
+  transition: background-color 0.3s ease;
+}
+
+/* ✔️ Check Button */
+li button.check-btn {
+  background-color: #68d391;
+  color: #2f855a;
+  font-weight: normal;
+  line-height: 1;
+}
+
+li button.check-btn:hover {
+  background-color: #2f855a;
+  color: white;
+}
+
+/* 🗑️ Delete Button */
+li button.delete-btn {
+  background-color: #f87171;
+  color: #e53e3e;
+}
+
+li button.delete-btn:hover {
+  background-color: #b91c1c;
+  color: white;
+}
+
+/* === TASK TIME DISPLAY === */
+.task-time,
+.time-left {
+  font-size: 12px;
+  font-style: italic;
+  color: #555;
+  margin-top: 2px;
+}
+
+/* === PRIORITY DROPDOWN === */
+.priority-dropdown {
+  margin-left: 10px;
+  padding: 4px 6px;
+  font-size: 12px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  background-color: #f9fafb;
+  color: #333;
+  cursor: pointer;
+}
+
+/* === PRIORITY COLORS === */
+li.priority-low {
+  border: 4px solid #38a169;
+  box-shadow: 0 0 10px rgba(56, 161, 105, 0.3);
+}
+
+li.priority-medium {
+  border: 4px solid #ed8936;
+  box-shadow: 0 0 10px rgba(237, 137, 54, 0.3);
+}
+
+li.priority-high {
+  border: 4px solid #e53e3e;
+  box-shadow: 0 0 10px rgba(229, 62, 62, 0.4);
+}
+
+/* === FEEDBACK FAB BUTTON === */
+#feedback-fab {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: #4299e1;
+  color: white;
+  border: none;
+  padding: 12px 16px;
+  font-size: 14px;
+  border-radius: 30px;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  z-index: 1000;
+}
+
+#feedback-fab:hover {
+  background-color: #2b6cb0;
+}
+
+/* === FEEDBACK POPUP === */
+#feedback-popup {
+  position: fixed;
+  bottom: 80px;
+  right: 20px;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  padding: 20px;
+  width: 300px;
+  z-index: 1001;
+}
+
+.popup-content textarea {
+  width: 100%;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  padding: 10px;
+  resize: vertical;
+  font-size: 14px;
+  margin-top: 10px;
+}
+
+.popup-actions {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 10px;
+  gap: 10px;
+}
+
+.popup-actions button {
+  padding: 6px 12px;
+  font-size: 13px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+#submit-feedback {
+  background-color: #38a169;
+  color: white;
+}
+
+#submit-feedback:hover {
+  background-color: #2f855a;
+}
+
+#close-feedback {
+  background-color: #e2e8f0;
+  color: #333;
+}
+
+#close-feedback:hover {
+  background-color: #cbd5e0;
+}
+
+#feedback-message {
+  margin-top: 10px;
+  color: #38a169;
+  font-size: 14px;
+}
+
+.hidden {
+  display: none;
+}
+
+/* === DARK MODE === */
+body.dark {
+  background: linear-gradient(-45deg, #1a202c, #2d3748, #4a5568, #1a202c);
+  color: #f7fafc;
+}
+
+body.dark .container {
+  background: rgba(26, 32, 44, 0.95);
+  box-shadow: 0 8px 20px rgba(255, 255, 255, 0.08);
+}
+
+body.dark input,
+body.dark select,
+body.dark button {
+  background-color: #2d3748;
+  color: #f7fafc;
+  border-color: #4a5568;
+}
+
+body.dark #add-btn {
+  background-color: #48bb78;
+}
+
+body.dark #add-btn:hover {
+  background-color: #2f855a;
+}
+
+body.dark #clear-btn {
+  background-color: #f56565;
+}
+
+body.dark #clear-btn:hover {
+  background-color: #c53030;
+}
+
+body.dark li {
+  background: #2d3748;
+  color: #f7fafc;
+}
+
+body.dark .priority-dropdown {
+  background-color: #4a5568;
+  color: white;
+}
+
+body.dark .check-btn {
+  background-color: #68d391;
+}
+
+body.dark .delete-btn {
+  background-color: #fc8181;
+}
+
+body.dark .delete-btn:hover {
+  background-color: #e53e3e;
+}
+
+/* Dark mode time info fix */
+body.dark .task-time,
+body.dark .time-left {
+  color: #f7fafc !important;
+}
+
+/* === CSS VARIABLES === */
+:root {
+  --bg: #ffffff;
+  --text: #333333;
+  --container-bg: rgba(255, 255, 255, 0.9);
+  --btn-green: #38a169;
+  --btn-red: #e53e3e;
+  --hover-green: #2f855a;
+  --hover-red: #c53030;
+  --input-bg: #fff;
+}
+
+body {
+  background-color: var(--bg);
+  color: var(--text);
+  transition: background-color 0.5s ease, color 0.5s ease;
+}
+
+.container {
+  background: var(--container-bg);
+  transition: background 0.5s ease;
+}
+
+body.dark {
+  --bg: #1e1e1e;
+  --text: #eeeeee;
+  --container-bg: rgba(40, 40, 40, 0.95);
+  --btn-green: #2f855a;
+  --btn-red: #c53030;
+  --hover-green: #276749;
+  --hover-red: #9b2c2c;
+  --input-bg: #2d3748;
+}
+
+/* === THEME TOGGLE SWITCH === */
+.theme-toggle-container {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  z-index: 1000;
+}
+
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 50px;
+  height: 26px;
+}
+
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0; left: 0;
+  right: 0; bottom: 0;
+  background-color: #ccc;
+  border-radius: 34px;
+  transition: 0.4s;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 20px; width: 20px;
+  left: 3px; bottom: 3px;
+  background-color: white;
+  border-radius: 50%;
+  transition: 0.4s;
+}
+
+.slider .emoji {
+  position: absolute;
+  top: 3px;
+  left: 5px;
+  font-size: 14px;
+  pointer-events: none;
+  transition: transform 0.4s ease;
+}
+
+input:checked + .slider .emoji {
+  transform: translateX(24px);
+  content: "🌙";
+}
+
+input:checked + .slider {
+  background-color: #4a5568;
+}
+
+input:checked + .slider:before {
+  transform: translateX(24px);
+}
+

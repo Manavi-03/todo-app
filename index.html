@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>My To-Do List</title>
+
+    <!-- Set default font style -->
+    <style>
+      body {
+        font-family: 'Times New Roman', Times, serif;
+      }
+    </style>
+
+    <!-- Link to external CSS file -->
+    <link rel="stylesheet" href="style.css" />
+  </head>
+
+  <body>
+    <div class="container">
+      <!-- App Header -->
+      <h1>📝 My To-Do List</h1>
+
+      <!-- Task input section -->
+      <div class="input-row">
+        <input id="task-input" type="text" placeholder="Enter a task..." />
+        <input id="task-time" type="datetime-local" />
+        <button id="add-btn">Add</button>
+        <button id="clear-btn">Clear All</button>
+      </div>
+
+      <!-- Theme toggle switch -->
+      <div class="theme-toggle-container">
+        <label class="switch">
+          <input type="checkbox" id="theme-toggle">
+          <span class="slider"><span class="emoji">☀️</span></span>
+        </label>
+      </div>
+
+      <br>
+
+      <!-- Priority filter dropdown -->
+      <label for="priority-filter">Filter by Priority:</label>
+      <select id="priority-filter">
+        <option value="all">All</option>
+        <option value="high">High</option>
+        <option value="medium">Medium</option>
+        <option value="low">Low</option>
+      </select>
+
+      <!-- Task list container -->
+      <ul id="task-list"></ul>
+    </div>
+
+    <!-- Floating feedback button -->
+    <div id="feedback-fab">Give Feedback 💬</div>
+
+    <!-- Feedback modal popup -->
+    <div id="feedback-popup" class="hidden">
+      <textarea id="feedback-input" placeholder="Your thoughts..."></textarea>
+      <div>
+        <button id="submit-feedback">Submit</button>
+        <button id="close-feedback">Close</button>
+      </div>
+      <div id="feedback-message" class="hidden">Thank you for your feedback! 💖</div>
+    </div>
+
+    <!-- Link to JavaScript files -->
+    <script src="app.js"></script>
+    <script src="theme_toggle.js"></script>
+  </body>
+</html>
+
+
+
+
+
+
+
+
