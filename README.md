@@ -15,6 +15,9 @@ A sleek and responsive to-do list app built with vanilla HTML, CSS, and JavaScri
 - Vanilla JavaScript (ES6)
 - LocalStorage for saving tasks & theme
 
+## 📸 Preview
+![Preview Screenshot](add_your_screenshot_here.png)
+
 ## 🚀 Getting Started
 1. Clone the repo or download ZIP
 2. Open `index.html` in your browser
